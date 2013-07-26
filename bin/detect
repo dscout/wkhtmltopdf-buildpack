@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "wkhtmltopdf-buildpack"
+exit 0

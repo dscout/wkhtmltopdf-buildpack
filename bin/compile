@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+WKHTMLTOPDF_BINARY="http://production-dscoutapp-com.s3.amazonaws.com/bin/wkhtmltopdf"
+WKHTMLTOPDF_PATH="vendor/bin/wkhtmltopdf"
+
+mkdir -p vendor/bin
+
+echo "-----> Transferring wkhtmltopdf binary"
+curl $WKHTMLTOPDF_BINARY -o $WKHTMLTOPDF_PATH
+
+echo "-----> Setting permissions"
+chmod +x $WKHTMLTOPDF_PATH
