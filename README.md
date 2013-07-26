@@ -5,7 +5,7 @@ binary with your environment.
 
 ## Versions
 
-* Buildpack:   0.4
+* Buildpack:   0.2
 * WKHTMLTOPDF: 0.9.9
 
 ## Usage
