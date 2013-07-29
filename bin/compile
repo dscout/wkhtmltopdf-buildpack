@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-WKHTMLTOPDF_BINARY="http://production-dscoutapp-com.s3.amazonaws.com/bin/wkhtmltopdf"
-WKHTMLTOPDF_PATH="vendor/bin/wkhtmltopdf"
+set -e
 
-mkdir -p vendor/bin
+mkdir -p "$1/bin/"
+
+WKHTMLTOPDF_BINARY="http://production-dscoutapp-com.s3.amazonaws.com/bin/wkhtmltopdf"
+WKHTMLTOPDF_PATH="$1/bin/wkhtmltopdf"
 
 echo "-----> Transferring wkhtmltopdf binary"
 curl $WKHTMLTOPDF_BINARY -o $WKHTMLTOPDF_PATH
