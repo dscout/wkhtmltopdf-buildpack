@@ -12,3 +12,5 @@ curl $WKHTMLTOPDF_BINARY -o $WKHTMLTOPDF_PATH
 
 echo "-----> Setting permissions"
 chmod +x $WKHTMLTOPDF_PATH
+
+exit 0
