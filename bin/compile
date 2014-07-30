@@ -5,7 +5,7 @@ set -e
 BIN_PATH="$1/bin/"
 mkdir -p $BIN_PATH
 
-WKHTMLTOPDF_BINARY="https://sourceforge.net/projects/wkhtmltopdf/files/0.12.0/wkhtmltox-linux-amd64_0.12.0-03c001d.tar.xz/download"
+WKHTMLTOPDF_BINARY="http://sourceforge.net/projects/wkhtmltopdf/files/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb/download"
 WKHTMLTOPDF_PATH="$1/bin/wkhtmltopdf"
 WKHTMLTOPDF_COMPRESSED_PATH="$1/bin/wkhtmltopdf.tar.xz"
 WKHTMLTOX_PATH="$1/bin/wkhtmltox"
