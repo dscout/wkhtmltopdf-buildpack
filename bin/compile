@@ -2,31 +2,28 @@
 
 set -e
 
-BIN_PATH="$1/bin/"
-mkdir -p $BIN_PATH
+BIN_PATH="$1/bin"
+TMP_PATH="$1/tmp"
+mkdir -p $BIN_PATH $TMP_PATH
 
-WKHTMLTOPDF_BINARY="http://sourceforge.net/projects/wkhtmltopdf/files/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb/download"
-WKHTMLTOPDF_PATH="$1/bin/wkhtmltopdf"
-WKHTMLTOPDF_COMPRESSED_PATH="$1/bin/wkhtmltopdf.tar.xz"
-WKHTMLTOX_PATH="$1/bin/wkhtmltox"
+WKHTMLTOPDF_URL="http://downloads.sourceforge.net/project/wkhtmltopdf/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb"
+WKHTMLTOPDF_PKG="$TMP_PATH/wkhtmltopdf.deb"
+WKHTMLTOPDF_PATH="$TMP_PATH/wkhtmltopdf"
+WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/usr/local/bin"
 
+echo "-----> Downloading wkhtmltopdf Debian package"
+curl -L $WKHTMLTOPDF_URL -o $WKHTMLTOPDF_PKG
 
-echo "-----> Transferring wkhtmltopdf compressed binary"
-curl -L $WKHTMLTOPDF_BINARY -o $WKHTMLTOPDF_COMPRESSED_PATH
-
-echo "-----> Decompressing binary"
-tar xJf $WKHTMLTOPDF_COMPRESSED_PATH --directory $BIN_PATH
-
-echo "-----> Removing compressed binary"
-rm -f $WKHTMLTOPDF_COMPRESSED_PATH
-
-echo "-----> Moving binary to the right place from wkhtmltox"
-mv $WKHTMLTOX_PATH/bin/wkhtmltopdf $BIN_PATH
-
-echo "-----> Removing wkhtmltox folder"
-rm -rf $WKHTMLTOX_PATH
+echo "-----> Unpacking Debian package"
+dpkg -x $WKHTMLTOPDF_PKG $WKHTMLTOPDF_PATH
 
 echo "-----> Setting permissions"
-chmod +x $WKHTMLTOPDF_PATH
+chmod +x $WKHTMLTOPDF_BINARIES/*
+
+echo "-----> Moving binaries to the right place"
+mv $WKHTMLTOPDF_BINARIES/* $BIN_PATH/
+
+echo "-----> Cleaning up"
+rm -rf $WKHTMLTOPDF_PKG $WKHTMLTOPDF_PATH
 
 exit 0
