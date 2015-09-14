@@ -11,7 +11,7 @@ binary with your environment.
 ## Usage
 
 ```bash
-$ heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
+$ heroku config:set BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
 $ echo 'https://github.com/heroku/heroku-buildpack-ruby.git' >> .buildpacks
 $ echo 'https://github.com/dscout/wkhtmltopdf-buildpack.git' >> .buildpacks
 $ git add .buildpacks
