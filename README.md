@@ -19,8 +19,14 @@ $ git add .buildpacks
 $ git commit -m 'Add multi-buildpack'
 ```
 
-[0]: http://devcenter.heroku.com/articles/buildpacks
-[1]: http://wkhtmltopdf.org/
+### Clearing Repo Cache
+
+Remember to clean your repository cache if you are updating the version of buildpack. To do that, run:
+
+```bash
+$ heroku plugins:install https://github.com/heroku/heroku-repo.git
+$ heroku repo:purge_cache -a appname
+```
 
 ## Troubleshooting
 
@@ -35,3 +41,6 @@ If you are on an older stack, you can upgrade to `cedar-14` with:
 ```bash
 $ heroku stack:set cedar-14
 ```
+
+[0]: http://devcenter.heroku.com/articles/buildpacks
+[1]: http://wkhtmltopdf.org/
