@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
 
-# This buildpack is valid only for the cedar-14 stack
-if [ "$STACK" = "cedar-14" ]; then
-  echo "wkhtmltopdf-buildpack"
-  exit 0
-else
-  exit 1
-fi
+echo "wkhtmltopdf-buildpack"
+exit 0
