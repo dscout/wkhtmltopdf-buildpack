@@ -6,7 +6,7 @@ binary with your environment.
 ## Versions
 
 * Buildpack:   `0.2`
-* wkhtmltopdf: `0.12.4`
+* wkhtmltopdf: `0.12.3`
 
 ## Usage
 
@@ -17,7 +17,7 @@ the Ruby buildpack.
 ```bash
 $ heroku buildpacks:set 'https://github.com/heroku/heroku-buildpack-multi.git'
 $ echo 'https://github.com/heroku/heroku-buildpack-ruby.git' >> .buildpacks
-$ echo 'https://github.com/dscout/wkhtmltopdf-buildpack.git' >> .buildpacks
+$ echo 'https://github.com/teamkudoz/wkhtmltopdf-buildpack.git' >> .buildpacks
 $ git add .buildpacks
 $ git commit -m 'Add multi-buildpack'
 ```
