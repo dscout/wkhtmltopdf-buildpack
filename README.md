@@ -6,7 +6,7 @@ binary with your environment.
 ## Versions
 
 * Buildpack:   `0.2`
-* wkhtmltopdf: `0.12.4`
+* wkhtmltopdf: `0.12.3` by default
 
 ## Usage
 
@@ -20,6 +20,13 @@ $ echo 'https://github.com/heroku/heroku-buildpack-ruby.git' >> .buildpacks
 $ echo 'https://github.com/dscout/wkhtmltopdf-buildpack.git' >> .buildpacks
 $ git add .buildpacks
 $ git commit -m 'Add multi-buildpack'
+```
+
+If you want to use a wkhtmltopdf version other than 0.12.3, set
+`WKHTMLTOPDF_VERSION`:
+
+```bash
+heroku config:set WKHTMLTOPDF_VERSION="0.12.4"
 ```
 
 ### Clearing Repo Cache
