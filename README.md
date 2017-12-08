@@ -6,7 +6,7 @@ binary with your environment.
 ## Versions
 
 * Buildpack:   `0.2`
-* wkhtmltopdf: `0.12.3` by default
+* wkhtmltopdf: `0.12.4` by default
 
 ## Usage
 
@@ -22,7 +22,7 @@ $ git add .buildpacks
 $ git commit -m 'Add multi-buildpack'
 ```
 
-If you want to use a wkhtmltopdf version other than 0.12.3, set
+If you want to use a wkhtmltopdf version other than 0.12.4, set
 `WKHTMLTOPDF_VERSION`:
 
 ```bash
