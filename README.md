@@ -10,19 +10,14 @@ binary with your environment.
 
 ## Usage
 
-This buildpack only installs wkhtmltopdf, it isn't very useful by itself. You'll
-probably want to use it as part of a multi-buildpack. Here is an example using
-the Ruby buildpack.
+[Add this buildpack][2] to your Heroku application to install the `wkhtmltopdf`
+binary into the dynos:
 
 ```bash
-$ heroku buildpacks:set 'https://github.com/heroku/heroku-buildpack-multi.git'
-$ echo 'https://github.com/heroku/heroku-buildpack-ruby.git' >> .buildpacks
-$ echo 'https://github.com/dscout/wkhtmltopdf-buildpack.git' >> .buildpacks
-$ git add .buildpacks
-$ git commit -m 'Add multi-buildpack'
+$ heroku buildpacks:add https://github.com/dscout/wkhtmltopdf-buildpack.git
 ```
 
-If you want to use a wkhtmltopdf version other than 0.12.3, set
+If you want to use a `wkhtmltopdf` version other than 0.12.3, set
 `WKHTMLTOPDF_VERSION`:
 
 ```bash
@@ -50,3 +45,4 @@ $ heroku stack
 
 [0]: http://devcenter.heroku.com/articles/buildpacks
 [1]: http://wkhtmltopdf.org/
+[2]: https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
