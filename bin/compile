@@ -44,7 +44,7 @@ echo "-----> Moving binaries to the right place"
 mv $WKHTMLTOPDF_BINARIES/* $BIN_PATH/
 
 echo "-----> Moving libs to the right place"
-mv $WKHTMLTOPDF_LIBS/* $BIN_PATH/
+mv $WKHTMLTOPDF_LIBS/* $LIB_PATH/
 
 echo "-----> Cleaning up"
 rm -rf $WKHTMLTOPDF_PATH
