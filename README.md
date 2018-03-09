@@ -11,7 +11,8 @@ binary with your environment.
 ## Usage
 
 [Add this buildpack][2] to your Heroku application to install the `wkhtmltopdf`
-binary into the dynos:
+and `wkhtmltoimage` binaries, and the corresponding library `libwkhtmltox`,
+into the dynos:
 
 ```bash
 $ heroku buildpacks:add https://github.com/dscout/wkhtmltopdf-buildpack.git
