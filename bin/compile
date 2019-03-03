@@ -15,27 +15,30 @@ mkdir -p $CACHE_DIR $BIN_PATH $LIB_PATH $TMP_PATH
 if [[ -f "$ENV_DIR/WKHTMLTOPDF_VERSION" ]]; then
   WKHTMLTOPDF_VERSION=$(cat "$ENV_DIR/WKHTMLTOPDF_VERSION")
 else
-  WKHTMLTOPDF_VERSION="0.12.3"
+  WKHTMLTOPDF_VERSION="0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb"
 fi
 
-WKHTMLTOPDF_URL="https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${WKHTMLTOPDF_VERSION}/wkhtmltox-${WKHTMLTOPDF_VERSION}_linux-generic-amd64.tar.xz"
-WKHTMLTOPDF_TAR="$CACHE_DIR/wkhtmltox.tar.xz"
-WKHTMLTOPDF_PATH="$TMP_PATH/wkhtmltox"
+WKHTMLTOPDF_URL="https://downloads.wkhtmltopdf.org/$WKHTMLTOPDF_VERSION"
+WKHTMLTOPDF_DEB="$CACHE_DIR/wkhtmltox.deb"
+WKHTMLTOPDF_PATH="$TMP_PATH/usr/local"
 WKHTMLTOPDF_BINARIES="$WKHTMLTOPDF_PATH/bin"
 WKHTMLTOPDF_LIBS="$WKHTMLTOPDF_PATH/lib"
 
 BIN_DIR=$(cd $(dirname $0); pwd)
 FONTS_DIR=$(cd "$BIN_DIR/../fonts"; pwd)
 
-if [ -f $WKHTMLTOPDF_TAR ]; then
-  echo "-----> Using wkhtmltopdf tar from cache"
+if [ -f $WKHTMLTOPDF_DEB ]; then
+  echo "-----> Using wkhtmltopdf deb from cache"
 else
-  echo "-----> Downloading wkhtmltopdf tar"
-  curl -L $WKHTMLTOPDF_URL -o $WKHTMLTOPDF_TAR
+  echo "-----> Downloading wkhtmltopdf deb"
+  curl -L $WKHTMLTOPDF_URL -o $WKHTMLTOPDF_DEB
 fi
 
-echo "-----> Unpacking tar"
-tar -xf $WKHTMLTOPDF_TAR -C $TMP_PATH
+echo "-----> Unpacking deb to: " . $TMP_PATH
+ar p $WKHTMLTOPDF_DEB data.tar.xz | tar xJ --directory $TMP_PATH 
+
+echo "-----> listing: " . $WKHTMLTOPDF_PATH
+ls $WKHTMLTOPDF_PATH
 
 echo "-----> Setting permissions"
 chmod +x $WKHTMLTOPDF_BINARIES/*
